@@ -1,0 +1,38 @@
+-- database: c:\Users\shaik suhail\suhailvs\my-app\swasthya\src\users.db
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+-- database.sql
+CREATE TABLE Users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT
+);
+
+CREATE TABLE Blogs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    content TEXT,
+    FOREIGN KEY(user_id) REFERENCES Users(id)
+);
+
+CREATE TABLE Comments (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    blog_id INTEGER,
+    user_id INTEGER,
+    content TEXT,
+    FOREIGN KEY(blog_id) REFERENCES Blogs(id),
+    FOREIGN KEY(user_id) REFERENCES Users(id)
+);
+
+-- Insert sample data
+INSERT INTO Users (name) VALUES ('User1');
+INSERT INTO Users (name) VALUES ('User2');
+INSERT INTO Users (name) VALUES ('User3');
+
+INSERT INTO Blogs (user_id, content) VALUES (1, 'Sample Blog 1 by User1');
+INSERT INTO Blogs (user_id, content) VALUES (2, 'Sample Blog 2 by User2');
+
+INSERT INTO Comments (blog_id, user_id, content) VALUES (1, 1, 'Comment by User1 on Blog1');
+INSERT INTO Comments (blog_id, user_id, content) VALUES (1, 2, 'Comment by User2 on Blog1');
+INSERT INTO Comments (blog_id, user_id, content) VALUES (2, 1, 'Comment by User1 on Blog2');
+INSERT INTO Comments (blog_id, user_id, content) VALUES (2, 3, 'Comment by User3 on Blog2');

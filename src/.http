@@ -1,0 +1,66 @@
+// API to add a new user
+
+POST   http://localhost:3000/users/
+Content-Type: application/json
+
+{
+ "name":"Vazeed"
+}
+
+###
+// API to get all users
+
+GET http://localhost:3000/users/
+
+###
+// API to get a specific user by ID
+
+GET http://localhost:3000/users/3
+
+###
+// API to add a new blog
+
+POST   http://localhost:3000/blogs/
+Content-Type: application/json
+
+{
+ "user_id":4,
+ "content":"Sample Blog 4 by User4"
+}
+
+###
+// API to get all blogs
+
+GET http://localhost:3000/blogs/
+
+###
+// API to get a specific blog by ID
+
+GET http://localhost:3000/blogs/2
+
+###
+// API to add a new comment
+
+POST   http://localhost:3000/comments/
+Content-Type: application/json
+
+{
+ "blog_id":3,
+ "user_id":2,
+ "content":"Comment by User3 on Blog2"
+}
+
+###
+// API to get all comments
+
+GET http://localhost:3000/comments/
+
+###
+// API to get a specific comment by ID
+
+GET http://localhost:3000/comments/3
+
+###
+
+// API to get n-th level friends of a given user
+GET http://localhost:3000/users/2/level/1
